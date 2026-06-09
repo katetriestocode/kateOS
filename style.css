@@ -1,3 +1,8 @@
 @font-face {
-    font-family: Hooey; 
-    src: url("/workspaces/kateOS/FOT-Matisse Pro EB.otf") format('otf'), 
+    font-family: eva; 
+    src: url("https://github.com/katetriestocode/kateOS/blob/main/FOT-Matisse%20Pro%20EB.woff2") format('woff2'), 
+}
+
+.main {
+    font-family: eva;
+}
