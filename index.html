@@ -5,8 +5,79 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="main">
-        <h1>kateOS</h1>
-        <p>idk what to add yet :P</p>
+    <div
+      class="window"
+      id="welcome"
+      style="top: calc(50% - 90px); left: calc(50% - 180px); ">
+        <div class="windowheader" id="welcomeheader">
+        <div class="closebutton" id="welcomeclose"></div>
+
+        <p class="headertext">Welcome</p>
+        <div style="width: 16px; margin-right: 6x; height: 16px"></div>
+      </div>
+      <div
+        style="
+          background-color: #fff;
+          margin: 6px;
+          border-radius: 12px;
+          width: 360px;
+          padding: 16px;
+        ">
+          <h1 style="margin: 4px">kateOS</h1>
+          <p style="margin: 0px">
+          <dfn>kateOS</dfn> answers: nothing yet
+          </p>
+        </div>
     </div>
+    <div
+      id="top"
+      style="
+        position: absolute;
+        width: 100%;
+        display: flex;
+        backdrop-filter: blur(10px);
+        background-color: rgba(0, 0, 0, 0.125);
+        color: #fff;
+        justify-content: space-between;
+        gap: 32px;
+      ">
+      <p
+        id="welcomeopen"
+        style="
+          margin-left: 16px;
+          font-weight: 700;
+          background-color: rgba(256, 256, 256, 0.125);
+          padding: 4px 12px;
+          border-radius: 16px;
+          cursor: pointer;
+        ">
+        kateOS
+      </p>
+          <p
+        style="
+          margin-left: 16px;
+          background-color: rgba(256, 256, 256, 0.25);
+          padding: 4px 12px;
+          border-radius: 16px;
+        ">
+        just chilling
+      </p>
+      <p
+        id="timeElement"
+        style="
+          margin-right: 16px;
+          background-color: rgba(256, 256, 256, 0.125);
+          padding: 4px 12px;
+          border-radius: 16px;
+        "></p>
+    </div>
+
+	  <div id="desktopApps" style="padding-top: 64px;">
+    <div style="text-align: center; padding: 16px; filter: drop-shadow(0 0 8px black); width: fit-content">
+      <img src="./notebook.png" style="width: 64px; height: 64px; border-radius: 16px;">
+      <p style="margin: 0px; color: #fff; ">Notes</p>
+    </div>
+  </div>
+</body>
+<script src="index.js"></script>
 </body>

@@ -1,8 +1,71 @@
 @font-face {
     font-family: eva; 
-    src: url("https://github.com/katetriestocode/kateOS/blob/main/FOT-Matisse%20Pro%20EB.woff2") format('woff2'), 
+    src: url("https://github.com/katetriestocode/kateOS/blob/main/FOT-Matisse%20Pro%20EB.woff2") format('woff2'),
+        url("https://github.com/katetriestocode/kateOS/blob/main/FOT-Matisse%20Pro%20EB.otf") format('otf');
 }
 
-.main {
+body {
+    background-image: url("https://wallpapercave.com/wp/wp4083199.jpg");
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+
+
+
+h1 {
     font-family: eva;
+}
+
+p {
+    font-family: eva;
+
+}
+
+
+
+
+.closebutton {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  background-color: #ec6b5e;
+  border-radius: 16px;
+  border: solid 1px rgba(0, 0, 0, 0.25);
+  margin-left: 6px;
+}
+
+.window {
+  border: solid;
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+  position: absolute;
+  backdrop-filter: blur(4px);
+  background-color: rgba(0, 0, 0, 0.125);
+}
+
+.windowheader {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  cursor: grab;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+
+.headertext {
+  margin: 0px;
+  color: #fff;
+  font-weight: 500
+}
+
+.selected {
+  background-color: rgba(256, 256, 256, 0.25);
+  border-radius: 16px;
 }
