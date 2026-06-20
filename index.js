@@ -170,10 +170,6 @@ var content = [
         </p>
         
       `
-      <iframe 
-        src="https://example.com" 
-        style="width: 100%; height: 200px; border: none; border-radius: 8px;">
-      </iframe>
   },
 ]
 
