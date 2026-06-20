@@ -46,30 +46,168 @@ function dragElement(element) {
   }
 }
 
-// --- Window Management ---
-
-var biggestIndex = 1; // Added this variable!
-var welcomeScreen = document.querySelector('#welcome');
-var topBar = document.querySelector('#top');
-var welcomeScreenClose = document.querySelector('#welcomeclose');
-var welcomeScreenOpen = document.querySelector('#welcomeopen');
+var welcomeScreen = document.querySelector('#welcome')
 
 function closeWindow(element) {
-  element.style.display = 'none';
+  element.style.display = 'none'
 }
+
+var welcomeScreenClose = document.querySelector('#welcomeclose')
+
+welcomeScreenClose.addEventListener('click', function () {
+  closeWindow(welcomeScreen)
+})
+
+var topBar = document.querySelector('#top')
 
 function openWindow(element) {
-  element.style.display = 'flex';
-  biggestIndex++; 
-  element.style.zIndex = biggestIndex;
-  topBar.style.zIndex = biggestIndex + 1;
+  element.style.display = 'flex'
+  biggestIndex++ // Increment biggestIndex by 1
+  element.style.zIndex = biggestIndex
+  topBar.style.zIndex = biggestIndex + 1
 }
 
-// Event Listeners
-welcomeScreenClose.addEventListener('click', function () {
-  closeWindow(welcomeScreen);
-});
+var welcomeScreenOpen = document.querySelector('#welcomeopen')
 
 welcomeScreenOpen.addEventListener('click', function () {
-  openWindow(welcomeScreen);
-});
+  openWindow(welcomeScreen)
+})
+
+var selectedIcon = undefined
+
+function selectIcon(element) {
+  element.classList.add('selected')
+  selectedIcon = element
+}
+
+function deselectIcon(element) {
+  element.classList.remove('selected')
+  selectedIcon = undefined
+}
+
+function handleIconTap(element, window) {
+  if (element.classList.contains('selected')) {
+    deselectIcon(element)
+    openWindow(window)
+  } else {
+    selectIcon(element)
+  }
+}
+
+var biggestIndex = 1
+
+function addWindowTapHandling(element) {
+  element.addEventListener('mousedown', () => handleWindowTap(element))
+}
+
+function handleWindowTap(element) {
+  biggestIndex++ // Increment biggestIndex by 1
+  element.style.zIndex = biggestIndex
+  topBar.style.zIndex = biggestIndex + 1
+  deselectIcon(selectedIcon)
+}
+
+function makeClosable(elementName) {
+  var screen = document.querySelector('#' + elementName)
+  var closeButton = document.querySelector('#' + elementName + 'close')
+  closeButton.addEventListener('click', () => closeWindow(screen))
+}
+
+function initializeIcon(name) {
+  var icon = document.querySelector('#' + name + 'Icon')
+  var screen = document.querySelector('#' + name)
+  icon.addEventListener('click', () => handleIconTap(icon, screen))
+}
+
+function initializeWindow(elementName) {
+  var screen = document.querySelector('#' + elementName)
+  addWindowTapHandling(screen)
+  makeClosable(elementName)
+  dragElement(screen)
+  if (elementName != 'welcome') {
+    initializeIcon(elementName)
+  }
+}
+
+initializeWindow('welcome')
+initializeWindow('notes')
+initializeWindow('photo')
+initializeWindow('blinky')
+initializeWindow('dev')
+
+var content = [
+  {
+    title: 'Welcome',
+    date: '17/6/2026',
+    content: `
+              <p contenteditable="True">
+          <span contenteditable="true">Welcome to my notes!
+            </br>
+            <img src=""
+              style="width: 96px; border-radius: 16px" />
+            </br>
+            </br>
+
+            Here you can find a bunch of info about me, such as my CV, my recent projects, and more!
+
+        </p>
+      `
+  },
+  {
+    title: 'CV',
+    date: '06/28/2023',
+    content: `
+              <p contenteditable="True">
+          <span contenteditable="true">CV
+            </br>
+            <img src=""
+              style="width: 96px; border-radius: 16px" />
+            </br>
+            </br>
+
+            
+
+        </p>
+        
+      `
+      <iframe 
+        src="https://example.com" 
+        style="width: 100%; height: 200px; border: none; border-radius: 8px;">
+      </iframe>
+  },
+]
+
+function setNotesContent(index) {
+  var notesContent = document.querySelector('#notesContent')
+
+  notesContent.innerHTML = content[index].content
+}
+
+setNotesContent(0)
+
+function addToSideBar(index) {
+  var sidebar = document.querySelector('#sidebar')
+
+  var note = content[index]
+
+  var newDiv = document.createElement('div')
+
+  newDiv.innerHTML = `
+    <p style="margin: 0px;">
+      ${note.title}
+    </p>
+    <p style="font-size: 12px; margin: 0px;">
+      ${note.date}
+    </p>
+  `
+
+  newDiv.addEventListener('click', function () {
+    setNotesContent(index)
+  })
+
+  sidebar.appendChild(newDiv)
+}
+
+for (let i = 0; i < content.length; i++) {
+  addToSideBar(i)
+}

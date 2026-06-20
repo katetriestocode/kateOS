@@ -25,7 +25,9 @@
         ">
           <h1 style="margin: 4px">kateOS</h1>
           <p style="margin: 0px">
-          <dfn>kateOS</dfn> answers: nothing yet
+          <dfn>kateOS</dfn> introduces you to kate! aka me
+          <br><br>I am a International Baccalaureate graduate and upcoming Computer Engineering scholarship student at Politecnico di Milano (September 2026). I have been studying in an international environment all my life, and love to talk to new people, so feel free to reach out to me!
+          <br><br>click on the apps to find out more about me!
           </p>
         </div>
     </div>
@@ -81,28 +83,58 @@
           filter: drop-shadow(0 0 8px black);
           width: fit-content;
           cursor: pointer;
+          margin: 8px;
         ">
         <img
           src="https://github.com/katetriestocode/kateOS/blob/main/notes.png?raw=true"
-          style="width: 8vw; height: 8vw; border-radius: 16px" />
+          style="width: 96px; height: 96px; border-radius: 10px" />
         <p style="margin: 0px; color: #fff">Notes</p>
       </div>
       <div
         id="photoIcon"
         style="
           text-align: center;
-          margin: 8px;
-          padding: 8px;
+          padding: 16px;
           filter: drop-shadow(0 0 8px black);
           width: fit-content;
           cursor: pointer;
+          margin: 8px;
         ">
         <img
           src="https://github.com/katetriestocode/kateOS/blob/main/photos.png?raw=true"
-          style="width: 8vw; height: 8vw; border-radius: 16px" />
-        <p style="margin: 0px; color: #fff">photos.png</p>
+          style="width: 96px; height: 96px; border-radius: 10px" />
+        <p style="margin: 0px; color: #fff">Photos</p>
       </div>
-    </div>
+      <div
+        id="devIcon"
+        style="
+          text-align: center;
+          padding: 16px;
+          filter: drop-shadow(0 0 8px black);
+          width: fit-content;
+          cursor: pointer;
+          margin: 8px;
+        ">
+        <img
+          src="https://github.com/katetriestocode/kateOS/blob/main/Subject.png?raw=true"
+          style="width: 96px; height: 96px; border-radius: 10px" />
+        <p style="margin: 0px; color: #fff">Devboard</p>
+      </div>
+      <div
+        id="blinkyIcon"
+        style="
+          text-align: center;
+          padding: 16px;
+          filter: drop-shadow(0 0 8px black);
+          width: fit-content;
+          cursor: pointer;
+          margin: 8px;
+        ">
+        <img
+          src="https://github.com/katetriestocode/kateOS/blob/main/Subject2.png?raw=true"
+          style="width: 96px; height: 96px; border-radius: 10px" />
+        <p style="margin: 0px; color: #fff">Blinky board</p>
+      </div>
 
     <div
       class="window"
@@ -129,7 +161,7 @@
           id="sidebar"
           style="
             background-color: #f9f9f9;
-            width: 520px;
+            width: 150px;
             margin-right: 16px;
             padding: 16px;
             border-radius: 16px;
@@ -160,6 +192,61 @@
         <p>Hello World</p>
       </div>
     </div>
+
+    <div
+      class="window"
+      id="dev"
+      style="top: calc(50% - 90px); left: calc(50% - 180px); display: none">
+      <div class="windowheader" id="devheader">
+        <div class="closebutton" id="devclose"></div>
+
+        <p class="headertext">Devboard</p>
+        <div style="width: 16px; margin-right: 6x; height: 16px"></div>
+      </div>
+      <div
+        style="
+          background-color: #fff;
+          margin: 6px;
+          border-radius: 12px;
+          width: 360px;
+          padding: 16px;
+        ">
+        <p>Hello World</p>
+        <img 
+        style="
+          width: 200px; 
+          height: auto;"
+        src="https://github.com/katetriestocode/Blinkyboard/blob/main/media/blink.gif?raw=true"></img>
+      </div>
+    </div>
+
+    <div
+      class="window"
+      id="blinky"
+      style="top: calc(50% - 90px); left: calc(50% - 180px); display: none">
+      <div class="windowheader" id="blinkyheader">
+        <div class="closebutton" id="blinkyclose"></div>
+
+        <p class="headertext">Blinky board</p>
+        <div style="width: 16px; margin-right: 6x; height: 16px"></div>
+      </div>
+      <div
+        style="
+          background-color: #fff;
+          margin: 6px;
+          border-radius: 12px;
+          width: 360px;
+          padding: 16px;
+        ">
+        <p>Hello World</p>
+        <img 
+        style="
+          width: 200px; 
+          height: auto;"
+        src="https://github.com/katetriestocode/Blinkyboard/blob/main/media/blink.gif?raw=true"></img>
+      </div>
+    </div>
+
 </body>
 <script src="index.js"></script>
 </html>
