@@ -131,6 +131,7 @@ function initializeWindow(elementName) {
 
 initializeWindow('welcome')
 initializeWindow('notes')
+initializeWindow('contacts')
 initializeWindow('photo')
 initializeWindow('blinky')
 initializeWindow('dev')
@@ -182,7 +183,8 @@ function setNotesContent(index) {
 setNotesContent(0)
 
 function addToSideBar(index) {
-  var sidebar = document.querySelector('#sidebar')
+  // Fix: Target the sidebar specifically inside the #notes window
+  var sidebar = document.querySelector('#notes #sidebar') 
 
   var note = content[index]
 
@@ -210,6 +212,75 @@ for (let i = 0; i < content.length; i++) {
 
 
 
+
+// Contacts Data Array
+var contactsData = [
+  {
+    title: 'Kate',
+    date: 'Me',
+    content: `
+      <p style="margin: 0;">
+        <b>Email:</b> kate@example.com<br><br>
+        <b>GitHub:</b> @katetriestocode<br><br>
+        <b>Bio:</b> Incoming Computer Engineering student at Politecnico di Milano.
+      </p>
+    `
+  },
+  {
+    title: 'Politecnico',
+    date: 'University',
+    content: `
+      <p style="margin: 0;">
+        <b>Location:</b> Milan, Italy<br><br>
+        <b>Program:</b> Computer Engineering Scholarship<br><br>
+        <b>Start Date:</b> September 2026
+      </p>
+    `
+  }
+]
+
+// Set up the content area
+function setContactsContent(index) {
+  var contactsContent = document.querySelector('#contactsContent')
+  contactsContent.innerHTML = contactsData[index].content
+}
+
+setContactsContent(0)
+
+// Set up the contacts sidebar
+function addToContactsSideBar(index) {
+  // Target the sidebar specifically inside the #contacts window
+  var sidebar = document.querySelector('#contacts #sidebar') 
+
+  var contact = contactsData[index]
+
+  var newDiv = document.createElement('div')
+
+  newDiv.innerHTML = `
+    <p style="margin: 0px;">
+      ${contact.title}
+    </p>
+    <p style="font-size: 12px; margin: 0px;">
+      ${contact.date}
+    </p>
+  `
+
+  newDiv.addEventListener('click', function () {
+    setContactsContent(index)
+  })
+
+  sidebar.appendChild(newDiv)
+}
+
+// Loop through contacts and add them to the sidebar
+for (let i = 0; i < contactsData.length; i++) {
+  addToContactsSideBar(i)
+}
+
+
+
+
+
 function handleFileEmbed(event) {
   var file = event.target.files[0];
   if (!file) return;
@@ -224,3 +295,5 @@ function handleFileEmbed(event) {
   };
   reader.readAsText(file);
 }
+
+
