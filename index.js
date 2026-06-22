@@ -164,9 +164,9 @@ var content = [
               style="width: 96px; border-radius: 16px" />
             </br>
             </br>
-
-            
-
+          <iframe src="https://raw.githubusercontent.com/katetriestocode/kateOS/main/cv.pdf" 
+                  style="width: 100%; height: 250px; border: none; border-radius: 12px;">
+          </iframe>
         </p>
         
       `
@@ -206,4 +206,21 @@ function addToSideBar(index) {
 
 for (let i = 0; i < content.length; i++) {
   addToSideBar(i)
+}
+
+
+
+function handleFileEmbed(event) {
+  var file = event.target.files[0];
+  if (!file) return;
+
+  var reader = new FileReader();
+  reader.onload = function (e) {
+    var displayBlock = document.querySelector('#embeddedFileDisplay');
+    if (displayBlock) {
+      displayBlock.textContent = e.target.result;
+      displayBlock.style.display = 'block'; // Make it visible once loaded
+    }
+  };
+  reader.readAsText(file);
 }
