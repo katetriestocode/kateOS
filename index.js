@@ -149,29 +149,12 @@ var content = [
             </br>
             </br>
 
-            Here you can find a bunch of info about me, such as my CV, my recent projects, and more!
+            coming soon!
 
         </p>
       `
   },
-  {
-    title: 'CV',
-    date: '06/28/2023',
-    content: `
-              <p contenteditable="True">
-          <span contenteditable="true">CV
-            </br>
-            <img src=""
-              style="width: 96px; border-radius: 16px" />
-            </br>
-            </br>
-          <iframe src="https://raw.githubusercontent.com/katetriestocode/kateOS/main/cv.pdf" 
-                  style="width: 100%; height: 250px; border: none; border-radius: 12px;">
-          </iframe>
-        </p>
-        
-      `
-  },
+
 ]
 
 function setNotesContent(index) {
@@ -213,71 +196,110 @@ for (let i = 0; i < content.length; i++) {
 
 
 
-// Contacts Data Array
+// contacts
+
 var contactsData = [
   {
-    title: 'Kate',
-    date: 'Me',
-    content: `
-      <p style="margin: 0;">
-        <b>Email:</b> kate@example.com<br><br>
-        <b>GitHub:</b> @katetriestocode<br><br>
-        <b>Bio:</b> Incoming Computer Engineering student at Politecnico di Milano.
-      </p>
-    `
+    name: 'Email',
+    icon: 'https://upload.wikimedia.org/wikipedia/en/7/78/Apple_Mail.png',
+    emailToCopy: 'caterina.camerlengo@icloud.com'
   },
   {
-    title: 'Politecnico',
-    date: 'University',
+    name: 'GitHub',
+    icon: 'https://www.applivery.com/wp-content/uploads/2024/07/GitHub-Desktop.png',
+    link: 'https://github.com/katetriestocode', 
+    content: ''
+  },
+  {
+    name: 'Kate (Me)',
+    icon: 'https://github.com/katetriestocode/kateOS/blob/main/folder2.png?raw=true',
+    link: '',
     content: `
-      <p style="margin: 0;">
-        <b>Location:</b> Milan, Italy<br><br>
-        <b>Program:</b> Computer Engineering Scholarship<br><br>
-        <b>Start Date:</b> September 2026
-      </p>
+      <div style="text-align: center; padding: 16px;">
+        <img src="https://github.com/katetriestocode/kateOS/blob/main/folder2.png?raw=true" style="width: 80px; border-radius: 16px; margin-bottom: 12px;">
+        <h2 style="margin: 4px 0;">Kate</h2>
+        <p style="color: #666; margin-top: 0;">System Owner</p>
+        <hr style="border: 0; border-top: 1px solid #eee; margin: 16px 0;">
+        <p align="left"><b>Email:</b> kate@example.com</p>
+        <p align="left"><b>GitHub:</b> @katetriestocode</p>
+        <p align="left">Incoming Computer Engineering student at Politecnico di Milano!</p>
+      </div>
     `
-  }
-]
+  },
+];
 
-// Set up the content area
-function setContactsContent(index) {
-  var contactsContent = document.querySelector('#contactsContent')
-  contactsContent.innerHTML = contactsData[index].content
+
+function showContactsGrid() {
+  var container = document.querySelector('#contactsMainContainer');
+  var backBtn = document.querySelector('#contactsBackBtn');
+  var title = document.querySelector('#contactsTitle');
+  
+  backBtn.style.display = 'none';
+  title.textContent = 'Contact me:';
+  
+
+  container.innerHTML = `<div id="contactsGrid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(76px, 1fr)); gap: 12px; padding: 8px;"></div>`;
+  var grid = document.querySelector('#contactsGrid');
+  
+  contactsData.forEach((contact, index) => {
+    var iconLink = document.createElement('a');
+    
+    iconLink.className = 'nav-icon';
+    iconLink.href = contact.link ? contact.link : 'javascript:void(0);';
+    if (contact.link) {
+      iconLink.target = '_blank';
+    }
+    
+    
+    iconLink.style.cssText = 'text-align: center; cursor: pointer; padding: 6px; border-radius: 12px; display: block; text-decoration: none; color: inherit; transition: background 0.15s ease-in-out;';
+    
+    
+    iconLink.innerHTML = `
+      <img src="${contact.icon}" alt="${contact.name}" style="width: 56px; height: 56px; object-fit: cover; border-radius: 14px; display: block; margin: 0 auto 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+      <p class="contact-label">${contact.name}</p>
+    `;
+    
+
+    iconLink.addEventListener('mouseenter', () => iconLink.style.background = '#f2f2f2');
+    iconLink.addEventListener('mouseleave', () => iconLink.style.background = 'transparent');
+    
+    if (contact.emailToCopy) {
+      iconLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        navigator.clipboard.writeText(contact.emailToCopy).then(function() {
+          alert('Email copied to clipboard: ' + contact.emailToCopy);
+        }).catch(function(error) {
+          console.error('Failed to copy: ', error);
+        });
+      });
+    } else if (!contact.link) {
+      iconLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        showContactProfile(index);
+      });
+    }
+    
+    grid.appendChild(iconLink);
+  });
 }
 
-setContactsContent(0)
 
-// Set up the contacts sidebar
-function addToContactsSideBar(index) {
-  // Target the sidebar specifically inside the #contacts window
-  var sidebar = document.querySelector('#contacts #sidebar') 
 
-  var contact = contactsData[index]
 
-  var newDiv = document.createElement('div')
-
-  newDiv.innerHTML = `
-    <p style="margin: 0px;">
-      ${contact.title}
-    </p>
-    <p style="font-size: 12px; margin: 0px;">
-      ${contact.date}
-    </p>
-  `
-
-  newDiv.addEventListener('click', function () {
-    setContactsContent(index)
-  })
-
-  sidebar.appendChild(newDiv)
+function showContactProfile(index) {
+  var container = document.querySelector('#contactsMainContainer');
+  var backBtn = document.querySelector('#contactsBackBtn');
+  var title = document.querySelector('#contactsTitle');
+  
+  var contact = contactsData[index];
+  title.textContent = contact.name;
+  backBtn.style.display = 'flex';
+  
+  container.innerHTML = contact.content;
 }
 
-// Loop through contacts and add them to the sidebar
-for (let i = 0; i < contactsData.length; i++) {
-  addToContactsSideBar(i)
-}
-
-
+document.querySelector('#contactsBackBtn').addEventListener('click', showContactsGrid);
+showContactsGrid();
 
 
 
@@ -290,10 +312,34 @@ function handleFileEmbed(event) {
     var displayBlock = document.querySelector('#embeddedFileDisplay');
     if (displayBlock) {
       displayBlock.textContent = e.target.result;
-      displayBlock.style.display = 'block'; // Make it visible once loaded
+      displayBlock.style.display = 'block';
     }
   };
   reader.readAsText(file);
 }
 
 
+
+
+initializeWindow('settings')
+
+// Wallpaper switching
+document.querySelectorAll('.wallpaper-option').forEach(function (img) {
+  img.addEventListener('click', function () {
+    document.body.style.backgroundImage = `url("${img.dataset.bg}")`
+    document.querySelectorAll('.wallpaper-option').forEach(o => o.classList.remove('selectedWallpaper'))
+    img.classList.add('selectedWallpaper')
+  })
+})
+
+// Dark dock toggle
+var darkDockToggle = document.querySelector('#darkDockToggle')
+var dock = document.querySelector('#bottomDock')
+
+darkDockToggle.addEventListener('change', function () {
+  if (darkDockToggle.checked) {
+    dock.classList.add('dock-dark')
+  } else {
+    dock.classList.remove('dock-dark')
+  }
+})

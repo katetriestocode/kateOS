@@ -1,11 +1,11 @@
 @font-face {
     font-family: eva; 
     src: url("https://github.com/katetriestocode/kateOS/blob/main/FOT-Matisse%20Pro%20EB.woff2") format('woff2'),
-        url("https://github.com/katetriestocode/kateOS/blob/main/FOT-Matisse%20Pro%20EB.otf") format('otf');
+         url("https://github.com/katetriestocode/kateOS/blob/main/FOT-Matisse%20Pro%20EB.otf") format('otf');
 }
 
 body {
-    background-image: url("https://github.com/katetriestocode/kateOS/blob/main/wallpaper.JPEG?raw=true");
+    background-image: url("https://media.512pixels.net/wp-content/uploads/2025/08/26-Tahoe-Beach-Day-thumb.jpeg");
     background-size: cover;
     background-position: center;
     margin: 0;
@@ -15,35 +15,13 @@ body {
     overflow: hidden;
 }
 
-
-
-
-h1 {
+h1, p {
     font-family: helvetica;
 }
 
-p {
-    font-family: helvetica;
-
-}
-
-
-
-
-.closebutton {
-  width: 16px;
-  height: 16px;
-  cursor: pointer;
-  background-color: #ec6b5e;
-  border-radius: 16px;
-  border: solid 1px rgba(0, 0, 0, 0.25);
-  margin-left: 6px;
-}
 
 .window {
-  border: solid;
-  border-width: 2px;
-  border-color: rgba(255, 255, 255, 0.05);
+  border: solid 2px rgba(255, 255, 255, 0.05);
   display: flex;
   flex-direction: column;
   border-radius: 16px;
@@ -64,10 +42,378 @@ p {
 .headertext {
   margin: 0px;
   color: #fff;
-  font-weight: 500
+  font-weight: 500;
+}
+
+.closebutton {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  background-color: #ec6b5e;
+  border-radius: 16px;
+  border: solid 1px rgba(0, 0, 0, 0.25);
+  margin-left: 6px;
+}
+
+.header-spacer {
+  width: 16px;
+  margin-right: 6px;
+  height: 16px;
+}
+
+
+#welcome {
+  top: calc(50% - 90px); 
+  left: calc(50% - 180px);
+}
+
+#notes {
+  top: calc(50% - 160px); 
+  left: calc(50% - 840px);
+  display: none;
+}
+
+#contacts {
+  top: calc(50% - 240px); 
+  left: calc(50% - 260px);
+  display: none;
+}
+
+#photo, #dev, #blinky {
+  top: calc(50% - 90px); 
+  left: calc(50% - 180px); 
+  display: none;
+}
+
+
+.window-content {
+  background-color: #fff;
+  margin: 6px;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.window-content h1 {
+  margin: 4px;
+}
+
+.window-content p {
+  margin: 0px;
+}
+
+
+#welcome .window-content,
+#photo .window-content,
+#dev .window-content,
+#blinky .window-content {
+  width: 360px;
+}
+
+#notes .window-content,
+#contacts .window-content {
+  width: 520px;
+  height: 480px;
+}
+
+
+#notes .window-content {
+  font-family: Courier;
+  display: flex;
+}
+
+#contacts .window-content {
+  display: flex;
+  flex-direction: column;
+}
+
+#sidebar {
+  background-color: #f9f9f9;
+  width: 150px;
+  margin-right: 16px;
+  padding: 16px;
+  border-radius: 16px;
+}
+
+#notesContent {
+  overflow-y: scroll;
+}
+
+.contacts-bar {
+  display: flex; 
+  align-items: center; 
+  gap: 12px; 
+  margin-bottom: 16px; 
+  height: 32px;
+}
+
+#contactsBackBtn {
+  border: none; 
+  background: #f0f0f0; 
+  border-radius: 50%; 
+  width: 28px; 
+  height: 28px; 
+  cursor: pointer; 
+  display: none; 
+  align-items: center; 
+  justify-content: center; 
+  font-weight: bold; 
+  font-size: 14px; 
+  color: #555;
+}
+
+#contactsTitle {
+  font-size: 18px; 
+  font-weight: 600; 
+  color: #222;
+}
+
+#contactsMainContainer {
+  flex: 1; 
+  overflow-y: auto;
+}
+
+.window-content img {
+  width: 200px;
+  height: auto;
+}
+
+
+#top {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  backdrop-filter: blur(10px);
+  background-color: rgba(0, 0, 0, 0.125);
+  color: #fff;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.top-pill {
+  padding: 4px 12px;
+  border-radius: 16px;
+  background-color: rgba(255, 255, 255, 0.125);
+}
+
+#welcomeopen {
+  margin-left: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+#top p:nth-child(2) {
+  margin-left: 16px;
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+#timeElement {
+  margin-right: 16px;
+}
+
+/* --- Grid & Desktop Icon Environments --- */
+#desktopApps {
+  padding-top: 64px; 
+  padding-left: 16px;
+}
+
+#desktopAppsright {
+  position: absolute; 
+  top: 64px; 
+  right: 16px; 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center;
+}
+
+.desktop-icon {
+  text-align: center;
+  padding: 16px;
+  filter: drop-shadow(0 0 8px black);
+  width: fit-content;
+  cursor: pointer;
+  margin: 8px;
+}
+
+.desktop-icon img {
+  border-radius: 10px;
+}
+
+#photoIcon img {
+
+}
+
+#notesIcon img {
+  width: 100px;
+  height: auto;
+}
+
+#contactsIcon img {
+
+}
+
+#devIcon img, #blinkyIcon img {
+  width: 96px;
+  height: 96px;
+}
+
+.desktop-icon p {
+  margin: 0px; 
+  color: #fff;
 }
 
 .selected {
   background-color: rgba(256, 256, 256, 0.25);
   border-radius: 16px;
+}
+
+body, .window, .nav-icon, img {
+  -webkit-user-select: none;
+  -ms-user-select: none;     
+  user-select: none;         
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+.dock {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: 28px;
+  background-color: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  z-index: 1000; /* Keeps it above standard desktop items */
+}
+
+.dock-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1), margin 0.2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dock-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2));
+}
+
+
+.dock-icon:hover {
+  transform: scale(1.2) translateY(-6px);
+  margin: 0 8px;
+}
+
+.dock-divider {
+  width: 1px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.4);
+  margin: 0 4px;
+}
+
+
+.contact-label {
+  margin: 0px; 
+  color: #333; 
+  font-size: 13px; 
+  text-align: center;
+  font-family: helvetica, sans-serif;
+  font-weight: 500;
+}
+
+
+#settings {
+  top: calc(50% - 160px);
+  left: calc(50% - 200px);
+  display: none;
+}
+
+#settings .window-content {
+  width: 400px;
+}
+
+.wallpaper-grid {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.wallpaper-option {
+  width: 100px !important;
+  height: 60px !important;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 3px solid transparent;
+}
+
+.wallpaper-option:hover {
+  opacity: 0.85;
+}
+
+.selectedWallpaper {
+  border-color: #007aff;
+}
+
+/* Toggle switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+  margin-top: 8px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: #ccc;
+  border-radius: 24px;
+  transition: 0.2s;
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.2s;
+}
+
+.switch input:checked + .slider {
+  background-color: #34c759;
+}
+
+.switch input:checked + .slider::before {
+  transform: translateX(20px);
+}
+
+.dock-dark {
+  background-color: rgba(20, 20, 20, 0.5) !important;
 }

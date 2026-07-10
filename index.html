@@ -1,304 +1,156 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>kateOS</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div
-      class="window"
-      id="welcome"
-      style="top: calc(50% - 90px); left: calc(50% - 180px); ">
-        <div class="windowheader" id="welcomeheader">
-        <div class="closebutton" id="welcomeclose"></div>
 
+    <div class="window" id="welcome">
+      <div class="windowheader" id="welcomeheader">
+        <div class="closebutton" id="welcomeclose"></div>
         <p class="headertext">Welcome</p>
-        <div style="width: 16px; margin-right: 6x; height: 16px"></div>
+        <div class="header-spacer"></div>
       </div>
-      <div
-        style="
-          background-color: #fff;
-          margin: 6px;
-          border-radius: 12px;
-          width: 360px;
-          padding: 16px;
-        ">
-          <h1 style="margin: 4px">kateOS</h1>
-          <p style="margin: 0px">
+      <div class="window-content">
+        <h1>kateOS</h1>
+        <p>
           <dfn>kateOS</dfn> introduces you to kate! aka me
           <br><br>I am a International Baccalaureate graduate and upcoming Computer Engineering scholarship student at Politecnico di Milano (September 2026). I have been studying in an international environment all my life, and love to talk to new people, so feel free to reach out to me!
           <br><br>click on the apps to find out more about me!
-          </p>
+        </p>
+      </div>
+    </div>
+
+    <div id="top">
+      <p id="welcomeopen" class="top-pill">kateOS v1.0</p>
+      <p class="top-pill">just chilling</p>
+      <p id="timeElement" class="top-pill"></p>
+    </div>
+
+    <div id="desktopApps">
+      <div id="notesIcon" class="desktop-icon">
+        <img src="https://www.macworld.com/wp-content/uploads/2023/12/folder-icon-macos.png" alt="files" />
+        <p>files</p>
+      </div>
+    </div>
+
+    <div id="desktopAppsright">
+      <div id="devIcon" class="desktop-icon">
+        <img src="https://github.com/katetriestocode/kateOS/blob/main/Subject.png?raw=true" alt="Devboard" />
+        <p>Devboard</p>
+      </div>
+      <div id="blinkyIcon" class="desktop-icon">
+        <img src="https://github.com/katetriestocode/kateOS/blob/main/Subject2.png?raw=true" alt="Blinky board" />
+        <p>Blinky board</p>
+      </div>
+
+      <div class="window" id="notes">
+        <div class="windowheader" id="notesheader">
+          <div class="closebutton" id="notesclose"></div>
+          <p class="headertext">Notes</p>
+          <div class="header-spacer"></div>
         </div>
-    </div>
-    <div
-      id="top"
-      style="
-        position: absolute;
-        width: 100%;
-        display: flex;
-        backdrop-filter: blur(10px);
-        background-color: rgba(0, 0, 0, 0.125);
-        color: #fff;
-        justify-content: space-between;
-        gap: 32px;
-      ">
-      <p
-        id="welcomeopen"
-        style="
-          margin-left: 16px;
-          font-weight: 700;
-          background-color: rgba(256, 256, 256, 0.125);
-          padding: 4px 12px;
-          border-radius: 16px;
-          cursor: pointer;
-        ">
-        kateOS
-      </p>
-          <p
-        style="
-          margin-left: 16px;
-          background-color: rgba(256, 256, 256, 0.25);
-          padding: 4px 12px;
-          border-radius: 16px;
-        ">
-        just chilling
-      </p>
-      <p
-        id="timeElement"
-        style="
-          margin-right: 16px;
-          background-color: rgba(256, 256, 256, 0.125);
-          padding: 4px 12px;
-          border-radius: 16px;
-        "></p>
-    </div>
-  </div>
-      <div id="desktopApps" style="padding-top: 64px; padding-left: 16px">
-      <div
-        id="notesIcon"
-        style="
-          text-align: center;
-          padding: 16px;
-          filter: drop-shadow(0 0 8px black);
-          width: fit-content;
-          cursor: pointer;
-          margin: 8px;
-        ">
-        <img
-          src="https://github.com/katetriestocode/kateOS/blob/main/folder2.png?raw=true"
-          style="width: 86px; height: auto; border-radius: 10px" />
-        <p style="margin: 0px; color: #fff">files</p>
-      </div>
-      <div
-        id="contactsIcon"
-        style="
-          text-align: center;
-          padding: 16px;
-          filter: drop-shadow(0 0 8px black);
-          width: fit-content;
-          cursor: pointer;
-          margin: 8px;
-        ">
-        <img
-          src="https://github.com/katetriestocode/kateOS/blob/main/folder2.png?raw=true"
-          style="width: 86px; height: auto; border-radius: 10px" />
-        <p style="margin: 0px; color: #fff">contacts</p>
-      </div>
-      <div
-        id="photoIcon"
-        style="
-          text-align: center;
-          padding: 16px;
-          filter: drop-shadow(0 0 8px black);
-          width: fit-content;
-          cursor: pointer;
-          margin: 8px;
-        ">
-        <img
-          src="https://github.com/katetriestocode/kateOS/blob/main/photos.png?raw=true"
-          style="width: 96px; height: 96px; border-radius: 10px" />
-        <p style="margin: 0px; color: #fff">Photos</p>
-      </div>
-      <div
-        id="devIcon"
-        style="
-          text-align: center;
-          padding: 16px;
-          filter: drop-shadow(0 0 8px black);
-          width: fit-content;
-          cursor: pointer;
-          margin: 8px;
-        ">
-        <img
-          src="https://github.com/katetriestocode/kateOS/blob/main/Subject.png?raw=true"
-          style="width: 96px; height: 96px; border-radius: 10px" />
-        <p style="margin: 0px; color: #fff">Devboard</p>
-      </div>
-      <div
-        id="blinkyIcon"
-        style="
-          text-align: center;
-          padding: 16px;
-          filter: drop-shadow(0 0 8px black);
-          width: fit-content;
-          cursor: pointer;
-          margin: 8px;
-        ">
-        <img
-          src="https://github.com/katetriestocode/kateOS/blob/main/Subject2.png?raw=true"
-          style="width: 96px; height: 96px; border-radius: 10px" />
-        <p style="margin: 0px; color: #fff">Blinky board</p>
-      </div>
-
-    <div
-      class="window"
-      id="notes"
-      style="top: calc(50% - 240px); display: none; left: calc(50% - 260px)">
-      <div class="windowheader" id="notesheader">
-        <div class="closebutton" id="notesclose"></div>
-
-        <p class="headertext">Notes</p>
-        <div style="width: 16px; margin-right: 6x; height: 16px"></div>
-      </div>
-      <div
-        style="
-          background-color: #fff;
-          margin: 6px;
-          border-radius: 12px;
-          width: 520px;
-          height: 480px;
-          padding: 16px;
-          font-family: Courier;
-          display: flex;
-        ">
-        <div
-          id="sidebar"
-          style="
-            background-color: #f9f9f9;
-            width: 150px;
-            margin-right: 16px;
-            padding: 16px;
-            border-radius: 16px;
-          "></div>
-
-        <div id="notesContent" style="overflow-y: scroll"></div>
+        <div class="window-content">
+          <div id="sidebar"></div>
+          <div id="notesContent"></div>
+        </div>
       </div>
     </div>
 
-
-    <div
-    class="window"
-      id="contacts"
-      style="top: calc(50% - 240px); display: none; left: calc(50% - 260px)">
+    <div class="window" id="contacts">
       <div class="windowheader" id="contactsheader">
         <div class="closebutton" id="contactsclose"></div>
-
-      <p class="headertext">contacts</p>
-      <div style="width: 16px; margin-right: 6x; height: 16px"></div>
+        <p class="headertext">contacts</p>
+        <div class="header-spacer"></div>
       </div>
-        <div
-        style="
-        background-color: #fff;
-        margin: 6px;
-        border-radius: 12px;
-        width: 520px;
-        height: 480px;
-        padding: 16px;
-        font-family: Courier;
-        display: flex;
-        ">
-        <div
-        id="sidebar"
-        style="
-        background-color: #f9f9f9;
-        width: 150px;
-        margin-right: 16px;
-        padding: 16px;
-        border-radius: 16px;
-        "></div>
-
-        <div id="contactsContent" style="overflow-y: scroll"></div>
+      <div class="window-content">
+        <div class="contacts-bar">
+          <button id="contactsBackBtn">&lt;</button>
+          <h1 id="contactsTitle">contacts</h1>
+        </div>
+        <div id="contactsMainContainer"></div>
       </div>
     </div>
     
-
-    <div
-      class="window"
-      id="photo"
-      style="top: calc(50% - 90px); left: calc(50% - 180px); display: none">
+    <div class="window" id="photo">
       <div class="windowheader" id="photoheader">
         <div class="closebutton" id="photoclose"></div>
-
         <p class="headertext">Photo</p>
-        <div style="width: 16px; margin-right: 6x; height: 16px"></div>
+        <div class="header-spacer"></div>
       </div>
-      <div
-        style="
-          background-color: #fff;
-          margin: 6px;
-          border-radius: 12px;
-          width: 360px;
-          padding: 16px;
-        ">
+      <div class="window-content">
         <p>Hello World</p>
       </div>
     </div>
 
-    <div
-      class="window"
-      id="dev"
-      style="top: calc(50% - 90px); left: calc(50% - 180px); display: none">
+    <div class="window" id="dev">
       <div class="windowheader" id="devheader">
         <div class="closebutton" id="devclose"></div>
-
         <p class="headertext">Devboard</p>
-        <div style="width: 16px; margin-right: 6x; height: 16px"></div>
+        <div class="header-spacer"></div>
       </div>
-      <div
-        style="
-          background-color: #fff;
-          margin: 6px;
-          border-radius: 12px;
-          width: 360px;
-          padding: 16px;
-        ">
+      <div class="window-content">
         <p>this is my devboard with 16MB of memory!</p>
-        <img 
-        style="
-          width: 200px; 
-          height: auto;"
-        src="https://github.com/katetriestocode/Blinkyboard/blob/main/media/blink.gif?raw=true"></img>
+        <img src="https://github.com/katetriestocode/Blinkyboard/blob/main/media/blink.gif?raw=true" alt="Blink Board Development Graphic">
       </div>
     </div>
 
-    <div
-      class="window"
-      id="blinky"
-      style="top: calc(50% - 90px); left: calc(50% - 180px); display: none">
+    <div class="window" id="blinky">
       <div class="windowheader" id="blinkyheader">
         <div class="closebutton" id="blinkyclose"></div>
-
         <p class="headertext">Blinky board</p>
-        <div style="width: 16px; margin-right: 6x; height: 16px"></div>
+        <div class="header-spacer"></div>
       </div>
-      <div
-        style="
-          background-color: #fff;
-          margin: 6px;
-          border-radius: 12px;
-          width: 360px;
-          padding: 16px;
-        ">
+      <div class="window-content">
         <p>this is my blinky board!</p>
-        <img 
-        style="
-          width: 200px; 
-          height: auto;"
-        src="https://github.com/katetriestocode/Blinkyboard/blob/main/media/blink.gif?raw=true"></img>
+        <img src="https://github.com/katetriestocode/Blinkyboard/blob/main/media/blink.gif?raw=true" alt="Blink Board Active State Graphic">
       </div>
     </div>
 
+    <div class="window" id="settings">
+      <div class="windowheader" id="settingsheader">
+        <div class="closebutton" id="settingsclose"></div>
+        <p class="headertext">Settings</p>
+        <div class="header-spacer"></div>
+      </div>
+      <div class="window-content" id="settingsContent">
+        <h1>Settings</h1>
+
+        <p style="margin-top: 12px; font-weight: 600;">Wallpaper</p>
+        <div class="wallpaper-grid">
+          <img class="wallpaper-option" data-bg="https://media.512pixels.net/wp-content/uploads/2025/08/26-Tahoe-Beach-Day-thumb.jpeg" src="https://media.512pixels.net/wp-content/uploads/2025/08/26-Tahoe-Beach-Day-thumb.jpeg">
+          <img class="wallpaper-option" data-bg="https://media.512pixels.net/downloads/macos-wallpapers-6k/26-Tahoe-Beach-Dawn.png" src="https://media.512pixels.net/downloads/macos-wallpapers-6k/26-Tahoe-Beach-Dawn.png">
+          <img class="wallpaper-option" data-bg="https://media.512pixels.net/downloads/macos-wallpapers-6k/26-Tahoe-Beach-Dusk.png" src="https://media.512pixels.net/downloads/macos-wallpapers-6k/26-Tahoe-Beach-Dusk.png">
+        </div>
+
+        <p style="margin-top: 16px; font-weight: 600;">Dark dock</p>
+        <label class="switch">
+          <input type="checkbox" id="darkDockToggle">
+          <span class="slider"></span>
+        </label>
+      </div>
+    </div>
+
+    <div class="dock" id="bottomDock">
+      <div class="dock-icon" id="contactsIcon">
+        <img src="https://help.apple.com/assets/6940565209A94A9B200A40A9/69405653B52840D87D012299/en_US/7f52b6a8a42927374571f4ead913072a.png" alt="contacts" />
+      </div>
+      <div class="dock-icon" id="photoIcon">
+        <img src="https://help.apple.com/assets/68CC87B9CAAD76736901E52B/68CC87BBC2E039F703036A8A/en_US/d1c53b6b8d4bae14b946fa9a54794550.png" alt="Photos" />
+      </div>
+      <div class="dock-icon">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Apple_Music_icon.svg/500px-Apple_Music_icon.svg.png?_=20221219073958" alt="Music Placeholder">
+      </div>
+      <div class="dock-icon" id="messagesIcon">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IMessage_logo.svg" alt="Messages Placeholder">
+      </div>
+      <div class="dock-divider"></div>
+      <div class="dock-icon" id="settingsIcon">
+        <img src="https://cdn.iconscout.com/icon/free/png-256/free-settings-icon-svg-download-png-461608.png" alt="Settings Placeholder">
+      </div>
+    </div>
 </body>
 <script src="index.js"></script>
 </html>
