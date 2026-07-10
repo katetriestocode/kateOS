@@ -472,3 +472,57 @@ body, .window, .nav-icon, img {
   color: #666;
   min-height: 16px;
 }
+
+
+#music {
+  top: calc(50% - 190px);
+  left: calc(50% - 160px);
+  display: none;
+}
+
+#music .window-content {
+  width: 320px;
+  padding: 12px;
+}
+
+
+#notes .window-content {
+  width: 360px;
+  height: auto;
+}
+
+#filesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 80px);
+  justify-content: center;
+  gap: 16px;
+  padding: 8px;
+}
+
+.file-icon {
+  text-align: center;
+  text-decoration: none;
+  color: #333;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 12px;
+  transition: background 0.15s ease-in-out;
+}
+
+.file-icon:hover {
+  background: #f2f2f2;
+}
+
+.file-icon img {
+  width: 56px !important;
+  height: 56px !important;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 6px;
+}
+
+.file-icon p {
+  font-size: 12px;
+  margin: 0;
+  font-family: helvetica;
+}

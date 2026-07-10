@@ -136,62 +136,39 @@ initializeWindow('photo')
 initializeWindow('blinky')
 initializeWindow('dev')
 
-var content = [
+var filesData = [
   {
-    title: 'Welcome',
-    date: '17/6/2026',
-    content: `
-              <p contenteditable="True">
-          <span contenteditable="true">Welcome to my notes!
-            </br>
-            <img src=""
-              style="width: 96px; border-radius: 16px" />
-            </br>
-            </br>
-
-            coming soon!
-
-        </p>
-      `
+    name: 'CV.pdf',
+    icon: 'https://cdn-icons-png.flaticon.com/512/337/337946.png',
+    url: 'https://raw.githubusercontent.com/katetriestocode/kateOS/main/cv.pdf'
   },
-
+  // add more PDFs here, same shape
+  // { name: 'Project.pdf', icon: '...', url: '...' },
 ]
 
-function setNotesContent(index) {
-  var notesContent = document.querySelector('#notesContent')
+function renderFilesGrid() {
+  var grid = document.querySelector('#filesGrid')
+  grid.innerHTML = ''
 
-  notesContent.innerHTML = content[index].content
-}
+  filesData.forEach(function (file) {
+    var fileIcon = document.createElement('a')
+    fileIcon.href = file.url
+    fileIcon.target = '_blank'
+    fileIcon.className = 'file-icon'
 
-setNotesContent(0)
+    fileIcon.innerHTML = `
+      <img src="${file.icon}" alt="${file.name}">
+      <p>${file.name}</p>
+    `
 
-function addToSideBar(index) {
-  // Fix: Target the sidebar specifically inside the #notes window
-  var sidebar = document.querySelector('#notes #sidebar') 
-
-  var note = content[index]
-
-  var newDiv = document.createElement('div')
-
-  newDiv.innerHTML = `
-    <p style="margin: 0px;">
-      ${note.title}
-    </p>
-    <p style="font-size: 12px; margin: 0px;">
-      ${note.date}
-    </p>
-  `
-
-  newDiv.addEventListener('click', function () {
-    setNotesContent(index)
+    grid.appendChild(fileIcon)
   })
-
-  sidebar.appendChild(newDiv)
 }
 
-for (let i = 0; i < content.length; i++) {
-  addToSideBar(i)
-}
+renderFilesGrid()
+
+
+
 
 
 
@@ -211,20 +188,10 @@ var contactsData = [
     content: ''
   },
   {
-    name: 'Kate (Me)',
-    icon: 'https://github.com/katetriestocode/kateOS/blob/main/folder2.png?raw=true',
-    link: '',
-    content: `
-      <div style="text-align: center; padding: 16px;">
-        <img src="https://github.com/katetriestocode/kateOS/blob/main/folder2.png?raw=true" style="width: 80px; border-radius: 16px; margin-bottom: 12px;">
-        <h2 style="margin: 4px 0;">Kate</h2>
-        <p style="color: #666; margin-top: 0;">System Owner</p>
-        <hr style="border: 0; border-top: 1px solid #eee; margin: 16px 0;">
-        <p align="left"><b>Email:</b> kate@example.com</p>
-        <p align="left"><b>GitHub:</b> @katetriestocode</p>
-        <p align="left">Incoming Computer Engineering student at Politecnico di Milano!</p>
-      </div>
-    `
+    name: 'Instagram',
+    icon: 'https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png',
+    link: 'https://www.instagram.com/kate.thepope/',
+    content: ''
   },
 ];
 
@@ -393,3 +360,6 @@ messageForm.addEventListener('submit', function (e) {
       msgSubmitBtn.disabled = false
     })
 })
+
+
+initializeWindow('music')

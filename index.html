@@ -45,19 +45,19 @@
         <img src="https://github.com/katetriestocode/kateOS/blob/main/Subject2.png?raw=true" alt="Blinky board" />
         <p>Blinky board</p>
       </div>
+    </div>
 
-      <div class="window" id="notes">
-        <div class="windowheader" id="notesheader">
-          <div class="closebutton" id="notesclose"></div>
-          <p class="headertext">Notes</p>
-          <div class="header-spacer"></div>
-        </div>
-        <div class="window-content">
-          <div id="sidebar"></div>
-          <div id="notesContent"></div>
-        </div>
+    <div class="window" id="notes">
+      <div class="windowheader" id="notesheader">
+        <div class="closebutton" id="notesclose"></div>
+        <p class="headertext">Files</p>
+        <div class="header-spacer"></div>
+      </div>
+      <div class="window-content">
+        <div id="filesGrid"></div>
       </div>
     </div>
+
 
     <div class="window" id="contacts">
       <div class="windowheader" id="contactsheader">
@@ -81,7 +81,7 @@
         <div class="header-spacer"></div>
       </div>
       <div class="window-content">
-        <p>Hello World</p>
+        <img src="https://github.com/katetriestocode/kateOS/blob/main/wallpaper.JPEG?raw=true"></img>
       </div>
     </div>
 
@@ -93,7 +93,7 @@
       </div>
       <div class="window-content">
         <p>this is my devboard with 16MB of memory!</p>
-        <img src="https://github.com/katetriestocode/Blinkyboard/blob/main/media/blink.gif?raw=true" alt="Blink Board Development Graphic">
+        <img src="https://private-user-images.githubusercontent.com/200981626/615238395-be1ffb36-b7a1-4225-ba9a-ec0f05ac837e.JPEG?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3ODM2OTE0ODEsIm5iZiI6MTc4MzY5MTE4MSwicGF0aCI6Ii8yMDA5ODE2MjYvNjE1MjM4Mzk1LWJlMWZmYjM2LWI3YTEtNDIyNS1iYTlhLWVjMGYwNWFjODM3ZS5KUEVHP1gtQW16LUFsZ29yaXRobT1BV1M0LUhNQUMtU0hBMjU2JlgtQW16LUNyZWRlbnRpYWw9QUtJQVZDT0RZTFNBNTNQUUs0WkElMkYyMDI2MDcxMCUyRnVzLWVhc3QtMSUyRnMzJTJGYXdzNF9yZXF1ZXN0JlgtQW16LURhdGU9MjAyNjA3MTBUMTM0NjIxWiZYLUFtei1FeHBpcmVzPTMwMCZYLUFtei1TaWduYXR1cmU9MzI4NTE1NmUzYzE1ZTgxNjc4MzU5MzRjZWQyZDA2NWM4MWExM2I2YWQ4MmRkNzY5M2FjYWY3OTBjMTA2YTE0MiZYLUFtei1TaWduZWRIZWFkZXJzPWhvc3QmcmVzcG9uc2UtY29udGVudC10eXBlPWltYWdlJTJGanBlZyJ9.Sj2IRGVtk1_44oCjXN4sEJ0H6bpZJOp91U3umGye-Ls" alt="devboard">
       </div>
     </div>
 
@@ -105,7 +105,7 @@
       </div>
       <div class="window-content">
         <p>this is my blinky board!</p>
-        <img src="https://github.com/katetriestocode/Blinkyboard/blob/main/media/blink.gif?raw=true" alt="Blink Board Active State Graphic">
+        <img src="https://github.com/katetriestocode/Blinkyboard/blob/main/media/blink.gif?raw=true" alt="blinky">
       </div>
     </div>
 
@@ -151,6 +151,27 @@
       </div>
     </div>
 
+    <div class="window" id="music">
+      <div class="windowheader" id="musicheader">
+        <div class="closebutton" id="musicclose"></div>
+        <p class="headertext">Music</p>
+        <div class="header-spacer"></div>
+      </div>
+      <div class="window-content">
+        <iframe
+          id="spotifyEmbed"
+          style="border-radius: 12px;"
+          src="https://open.spotify.com/embed/playlist/1GxfkbUx8vqz4GM0hORedu?utm_source=generator&si=b1e1367d152341ec"
+          width="320"
+          height="380"
+          frameborder="0"
+          allowfullscreen=""
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy">
+        </iframe>
+      </div>
+    </div>
+
     <div class="dock" id="bottomDock">
       <div class="dock-icon" id="contactsIcon">
         <img src="https://help.apple.com/assets/6940565209A94A9B200A40A9/69405653B52840D87D012299/en_US/7f52b6a8a42927374571f4ead913072a.png" alt="contacts" />
@@ -158,15 +179,15 @@
       <div class="dock-icon" id="photoIcon">
         <img src="https://help.apple.com/assets/68CC87B9CAAD76736901E52B/68CC87BBC2E039F703036A8A/en_US/d1c53b6b8d4bae14b946fa9a54794550.png" alt="Photos" />
       </div>
-      <div class="dock-icon">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Apple_Music_icon.svg/500px-Apple_Music_icon.svg.png?_=20221219073958" alt="Music Placeholder">
+      <div class="dock-icon" id="musicIcon">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Apple_Music_icon.svg/500px-Apple_Music_icon.svg.png?_=20221219073958" alt="Music">
       </div>
       <div class="dock-icon" id="messagesIcon">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IMessage_logo.svg" alt="Messages Placeholder">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IMessage_logo.svg" alt="Messages">
       </div>
       <div class="dock-divider"></div>
       <div class="dock-icon" id="settingsIcon">
-        <img src="https://cdn.iconscout.com/icon/free/png-256/free-settings-icon-svg-download-png-461608.png" alt="Settings Placeholder">
+        <img src="https://cdn.iconscout.com/icon/free/png-256/free-settings-icon-svg-download-png-461608.png" alt="Settings">
       </div>
     </div>
 </body>
