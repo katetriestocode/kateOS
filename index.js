@@ -228,7 +228,6 @@ var contactsData = [
   },
 ];
 
-
 function showContactsGrid() {
   var container = document.querySelector('#contactsMainContainer');
   var backBtn = document.querySelector('#contactsBackBtn');
@@ -238,7 +237,7 @@ function showContactsGrid() {
   title.textContent = 'Contact me:';
   
 
-  container.innerHTML = `<div id="contactsGrid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(76px, 1fr)); gap: 12px; padding: 8px;"></div>`;
+  container.innerHTML = `<div id="contactsGrid" style="display: grid; grid-template-columns: repeat(3, 76px); justify-content: center; gap: 12px; padding: 8px;"></div>`;
   var grid = document.querySelector('#contactsGrid');
   
   contactsData.forEach((contact, index) => {
@@ -342,4 +341,55 @@ darkDockToggle.addEventListener('change', function () {
   } else {
     dock.classList.remove('dock-dark')
   }
+})
+
+
+
+
+
+initializeWindow('messages')
+
+var messageForm = document.querySelector('#messageForm')
+var msgStatus = document.querySelector('#msgStatus')
+var msgSubmitBtn = document.querySelector('#msgSubmitBtn')
+
+var FORMSPREE_ENDPOINT = 'https://formspree.io/f/xqevrbbn'
+
+messageForm.addEventListener('submit', function (e) {
+  e.preventDefault()
+
+  var name = document.querySelector('#msgName').value
+  var email = document.querySelector('#msgEmail').value
+  var body = document.querySelector('#msgBody').value
+
+  msgSubmitBtn.disabled = true
+  msgStatus.textContent = 'Sending...'
+
+  fetch(FORMSPREE_ENDPOINT, {
+    method: 'POST',
+    headers: { 'Accept': 'application/json' },
+    body: new FormData(messageForm.replaceNameEmailBody
+      ? messageForm
+      : (function () {
+          var fd = new FormData()
+          fd.append('name', name)
+          fd.append('email', email)
+          fd.append('message', body)
+          return fd
+        })())
+  })
+    .then(function (response) {
+      if (response.ok) {
+        msgStatus.textContent = 'Message sent! I\'ll get back to you soon.'
+        messageForm.reset()
+      } else {
+        msgStatus.textContent = 'Something went wrong, please try again.'
+      }
+    })
+    .catch(function () {
+      msgStatus.textContent = 'Network error, please try again.'
+    })
+    .finally(function () {
+      msgSubmitBtn.disabled = false
+    })
 })

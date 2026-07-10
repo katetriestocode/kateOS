@@ -133,6 +133,24 @@
       </div>
     </div>
 
+    <div class="window" id="messages">
+      <div class="windowheader" id="messagesheader">
+        <div class="closebutton" id="messagesclose"></div>
+        <p class="headertext">Messages</p>
+        <div class="header-spacer"></div>
+      </div>
+      <div class="window-content">
+        <h1>Send me a message</h1>
+        <form id="messageForm">
+          <input type="text" id="msgName" placeholder="Your name" required>
+          <input type="email" id="msgEmail" placeholder="Your email" required>
+          <textarea id="msgBody" placeholder="Your message" rows="4" required></textarea>
+          <button type="submit" id="msgSubmitBtn">Send</button>
+          <p id="msgStatus"></p>
+        </form>
+      </div>
+    </div>
+
     <div class="dock" id="bottomDock">
       <div class="dock-icon" id="contactsIcon">
         <img src="https://help.apple.com/assets/6940565209A94A9B200A40A9/69405653B52840D87D012299/en_US/7f52b6a8a42927374571f4ead913072a.png" alt="contacts" />

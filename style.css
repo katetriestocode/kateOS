@@ -109,12 +109,15 @@ h1, p {
   width: 360px;
 }
 
-#notes .window-content,
-#contacts .window-content {
+#notes .window-content {
   width: 520px;
   height: 480px;
 }
 
+#contacts .window-content {
+  width: fit-content;
+  max-height: 480px;
+}
 
 #notes .window-content {
   font-family: Courier;
@@ -416,4 +419,56 @@ body, .window, .nav-icon, img {
 
 .dock-dark {
   background-color: rgba(20, 20, 20, 0.5) !important;
+}
+
+
+
+
+
+#messages {
+  top: calc(50% - 160px);
+  left: calc(50% - 200px);
+  display: none;
+}
+
+#messages .window-content {
+  width: 340px;
+}
+
+#messageForm {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+#messageForm input,
+#messageForm textarea {
+  padding: 8px 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-family: helvetica;
+  font-size: 14px;
+  resize: none;
+}
+
+#messageForm button {
+  background-color: #007aff;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+#messageForm button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+#msgStatus {
+  font-size: 13px;
+  color: #666;
+  min-height: 16px;
 }
